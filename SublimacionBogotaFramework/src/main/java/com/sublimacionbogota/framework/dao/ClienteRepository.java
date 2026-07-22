@@ -1,13 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package com.sublimacionbogota.framework.dao;
 
+import org.springframework.data.jpa.repository.JpaRepository;
+import com.sublimacionbogota.framework.modelo.Cliente;
+
 /**
- *
- * @author Usuario
+ * Repositorio que reemplaza el ClienteDAO tradicional.
+ * JpaRepository provee automáticamente métodos CRUD.
  */
-public interface ClienteRepository {
-    
+public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 }
