@@ -1,13 +1,42 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.sublimacionbogota.framework.controller;
 
-/**
- *
- * @author Usuario
- */
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+import com.sublimacionbogota.framework.dao.ReporteRepository;
+import com.sublimacionbogota.framework.modelo.Reporte;
+
+@RestController
+@RequestMapping("/reportes")
 public class ReporteController {
-    
+
+    private final ReporteRepository reporteRepository;
+
+    public ReporteController(ReporteRepository reporteRepository) {
+        this.reporteRepository = reporteRepository;
+    }
+
+    // READ
+    @GetMapping
+    public List<Reporte> listarReportes() {
+        return reporteRepository.findAll();
+    }
+
+    // CREATE
+    @PostMapping
+    public Reporte crearReporte(@RequestBody Reporte reporte) {
+        return reporteRepository.save(reporte);
+    }
+
+    // UPDATE
+    @PutMapping("/{id}")
+    public Reporte actualizarReporte(@PathVariable Long id, @RequestBody Reporte reporte) {
+        reporte.setIdReporte(id);
+        return reporteRepository.save(reporte);
+    }
+
+    // DELETE
+    @DeleteMapping("/{id}")
+    public void eliminarReporte(@PathVariable Long id) {
+        reporteRepository.deleteById(id);
+    }
 }
