@@ -5,6 +5,7 @@ import java.util.List;
 import com.sublimacionbogota.framework.dao.PedidoRepository;
 import com.sublimacionbogota.framework.modelo.Pedido;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/pedidos")
 public class PedidoController {

@@ -1,3 +1,4 @@
+
 package com.sublimacionbogota.framework.controller;
 
 import org.springframework.web.bind.annotation.*;
@@ -5,6 +6,7 @@ import java.util.List;
 import com.sublimacionbogota.framework.dao.ReporteRepository;
 import com.sublimacionbogota.framework.modelo.Reporte;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/reportes")
 public class ReporteController {

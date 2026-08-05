@@ -5,6 +5,7 @@ import java.util.List;
 import com.sublimacionbogota.framework.dao.EmpleadoRepository;
 import com.sublimacionbogota.framework.modelo.Empleado;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/empleados")
 public class EmpleadoController {

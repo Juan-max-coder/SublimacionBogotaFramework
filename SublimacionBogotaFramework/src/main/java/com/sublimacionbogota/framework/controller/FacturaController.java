@@ -5,6 +5,7 @@ import java.util.List;
 import com.sublimacionbogota.framework.dao.FacturaRepository;
 import com.sublimacionbogota.framework.modelo.Factura;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/facturas")
 public class FacturaController {

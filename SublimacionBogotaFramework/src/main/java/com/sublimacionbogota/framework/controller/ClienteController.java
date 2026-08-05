@@ -9,6 +9,7 @@ import com.sublimacionbogota.framework.modelo.Cliente;
  * Controlador REST que reemplaza el Servlet ClienteServlet.
  * Expone endpoints CRUD para la entidad Cliente.
  */
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/clientes")
 public class ClienteController {

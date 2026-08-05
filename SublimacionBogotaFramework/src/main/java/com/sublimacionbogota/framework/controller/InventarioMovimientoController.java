@@ -5,6 +5,7 @@ import java.util.List;
 import com.sublimacionbogota.framework.dao.InventarioMovimientoRepository;
 import com.sublimacionbogota.framework.modelo.InventarioMovimiento;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/movimientos")
 public class InventarioMovimientoController {

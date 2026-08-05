@@ -5,6 +5,7 @@ import java.util.List;
 import com.sublimacionbogota.framework.dao.UsuarioRepository;
 import com.sublimacionbogota.framework.modelo.Usuario;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {

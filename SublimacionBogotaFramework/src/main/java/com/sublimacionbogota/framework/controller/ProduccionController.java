@@ -5,6 +5,7 @@ import java.util.List;
 import com.sublimacionbogota.framework.dao.ProduccionRepository;
 import com.sublimacionbogota.framework.modelo.Produccion;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/producciones")
 public class ProduccionController {

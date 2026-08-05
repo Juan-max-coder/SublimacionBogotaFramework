@@ -5,6 +5,7 @@ import java.util.List;
 import com.sublimacionbogota.framework.dao.MaterialRepository;
 import com.sublimacionbogota.framework.modelo.Material;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/materiales")
 public class MaterialController {

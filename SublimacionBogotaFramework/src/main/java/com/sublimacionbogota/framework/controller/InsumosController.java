@@ -5,6 +5,7 @@ import java.util.List;
 import com.sublimacionbogota.framework.dao.InsumosRepository;
 import com.sublimacionbogota.framework.modelo.Insumos;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/insumos")
 public class InsumosController {

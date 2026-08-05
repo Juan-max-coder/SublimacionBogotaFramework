@@ -5,6 +5,7 @@ import java.util.List;
 import com.sublimacionbogota.framework.dao.TareaProduccionRepository;
 import com.sublimacionbogota.framework.modelo.TareaProduccion;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/tareas")
 public class TareaProduccionController {
