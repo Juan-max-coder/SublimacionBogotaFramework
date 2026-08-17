@@ -1,23 +1,36 @@
 package com.sublimacionbogota.framework.modelo;
 
 import jakarta.persistence.*;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "usuarios")
 public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idUsuario;
 
+    @Column(nullable = false)
     private String nombreUsuario;
+
+    @Column(nullable = false)
     private String apellidoUsuario;
 
-    @Column(unique = true)
+    @Column(unique = true, nullable = false)
     private String correoUsuario;
 
+    @Column(nullable = false)
     private String contrasenaUsuario;
+
+    @Column(nullable = false)
     private String rolUsuario;
+
+    private Boolean estadoUsuario = true;
+
+    @OneToOne
+    @JoinColumn(name = "empleado_id", referencedColumnName = "idEmpleado")
+    private Empleado empleado;
 
     public Usuario() {}
 
@@ -27,7 +40,7 @@ public class Usuario {
         this.nombreUsuario = nombreUsuario;
         this.apellidoUsuario = apellidoUsuario;
         this.correoUsuario = correoUsuario;
-        this.contrasenaUsuario = contrasenaUsuario;
+        this.contrasenaUsuario = new BCryptPasswordEncoder().encode(contrasenaUsuario);
         this.rolUsuario = rolUsuario;
     }
 
@@ -45,8 +58,16 @@ public class Usuario {
     public void setCorreoUsuario(String correoUsuario) { this.correoUsuario = correoUsuario; }
 
     public String getContrasenaUsuario() { return contrasenaUsuario; }
-    public void setContrasenaUsuario(String contrasenaUsuario) { this.contrasenaUsuario = contrasenaUsuario; }
+    public void setContrasenaUsuario(String contrasenaUsuario) {
+        this.contrasenaUsuario = new BCryptPasswordEncoder().encode(contrasenaUsuario);
+    }
 
     public String getRolUsuario() { return rolUsuario; }
     public void setRolUsuario(String rolUsuario) { this.rolUsuario = rolUsuario; }
+
+    public Boolean getEstadoUsuario() { return estadoUsuario; }
+    public void setEstadoUsuario(Boolean estadoUsuario) { this.estadoUsuario = estadoUsuario; }
+
+    public Empleado getEmpleado() { return empleado; }
+    public void setEmpleado(Empleado empleado) { this.empleado = empleado; }
 }

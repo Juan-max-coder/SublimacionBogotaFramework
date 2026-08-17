@@ -2,6 +2,7 @@ package com.sublimacionbogota.framework.controller;
 
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import com.sublimacionbogota.framework.dao.UsuarioRepository;
 import com.sublimacionbogota.framework.modelo.Usuario;
 
@@ -11,6 +12,7 @@ import com.sublimacionbogota.framework.modelo.Usuario;
 public class UsuarioController {
 
     private final UsuarioRepository usuarioRepository;
+    private final BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 
     public UsuarioController(UsuarioRepository usuarioRepository) {
         this.usuarioRepository = usuarioRepository;
@@ -31,6 +33,7 @@ public class UsuarioController {
     // CREATE
     @PostMapping
     public Usuario crearUsuario(@RequestBody Usuario usuario) {
+        usuario.setContrasenaUsuario(passwordEncoder.encode(usuario.getContrasenaUsuario()));
         return usuarioRepository.save(usuario);
     }
 
@@ -38,6 +41,7 @@ public class UsuarioController {
     @PutMapping("/{id}")
     public Usuario actualizarUsuario(@PathVariable Long id, @RequestBody Usuario usuario) {
         usuario.setIdUsuario(id);
+        usuario.setContrasenaUsuario(passwordEncoder.encode(usuario.getContrasenaUsuario()));
         return usuarioRepository.save(usuario);
     }
 

@@ -3,31 +3,37 @@ package com.sublimacionbogota.framework.modelo;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "Empleado")
+@Table(name = "empleados")
 public class Empleado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idEmpleado;
 
+    @Column(nullable = false)
     private String nombreEmpleado;
+
+    @Column(nullable = false)
     private String cargoEmpleado;
+
+    @Column(nullable = false)
     private String areaEmpleado;
+
+    @Column(nullable = false)
     private String contactoEmpleado;
 
-    @Column(name = "Usuario_idUsuario")
-    private Long usuarioIdUsuario;
+    @OneToOne(mappedBy = "empleado")
+    private Usuario usuario; // relación inversa con Usuario
 
     public Empleado() {}
 
     public Empleado(Long idEmpleado, String nombreEmpleado, String cargoEmpleado,
-                    String areaEmpleado, String contactoEmpleado, Long usuarioIdUsuario) {
+                    String areaEmpleado, String contactoEmpleado) {
         this.idEmpleado = idEmpleado;
         this.nombreEmpleado = nombreEmpleado;
         this.cargoEmpleado = cargoEmpleado;
         this.areaEmpleado = areaEmpleado;
         this.contactoEmpleado = contactoEmpleado;
-        this.usuarioIdUsuario = usuarioIdUsuario;
     }
 
     // Getters y Setters
@@ -46,6 +52,6 @@ public class Empleado {
     public String getContactoEmpleado() { return contactoEmpleado; }
     public void setContactoEmpleado(String contactoEmpleado) { this.contactoEmpleado = contactoEmpleado; }
 
-    public Long getUsuarioIdUsuario() { return usuarioIdUsuario; }
-    public void setUsuarioIdUsuario(Long usuarioIdUsuario) { this.usuarioIdUsuario = usuarioIdUsuario; }
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 }
