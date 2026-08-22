@@ -1,4 +1,4 @@
-package com.sublimacionbogota.SublimacionBogotaFramework;
+package com.sublimacionbogota.framework;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
