@@ -34,7 +34,8 @@ public class JwtFilter extends OncePerRequestFilter {
 
     // Excluir todo lo que empiece con /auth/
     @Override
-    protected boolean shouldNotFilter(HttpServletRequest request) {
-        return request.getServletPath().startsWith("/auth/");
-    }
+protected boolean shouldNotFilter(HttpServletRequest request) {
+    String path = request.getServletPath();
+    return path.startsWith("/auth");
+}
 }

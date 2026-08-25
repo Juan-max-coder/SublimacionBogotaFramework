@@ -44,7 +44,7 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!--Spring Security (para BCrypt y JWT) -->
+        <!-- Spring Security -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-security</artifactId>
@@ -94,9 +94,13 @@
 
     <build>
         <plugins>
+            <!-- Plugin de Spring Boot con clase principal configurada -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <mainClass>com.sublimacionbogota.framework.SublimacionBogotaFrameworkApplication</mainClass>
+                </configuration>
             </plugin>
         </plugins>
     </build>

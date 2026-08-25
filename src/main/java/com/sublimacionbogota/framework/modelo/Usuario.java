@@ -1,7 +1,6 @@
 package com.sublimacionbogota.framework.modelo;
 
 import jakarta.persistence.*;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Entity
 @Table(name = "usuarios")
@@ -28,8 +27,8 @@ public class Usuario {
 
     private Boolean estadoUsuario = true;
 
-    @OneToOne
-    @JoinColumn(name = "empleado_id", referencedColumnName = "idEmpleado")
+    @OneToOne(optional = true)
+    @JoinColumn(name = "empleado_id", referencedColumnName = "idEmpleado", nullable = true)
     private Empleado empleado;
 
     public Usuario() {}
@@ -40,10 +39,10 @@ public class Usuario {
         this.nombreUsuario = nombreUsuario;
         this.apellidoUsuario = apellidoUsuario;
         this.correoUsuario = correoUsuario;
-        this.contrasenaUsuario = new BCryptPasswordEncoder().encode(contrasenaUsuario);
+        this.contrasenaUsuario = contrasenaUsuario; // 👈 sin encode aquí
         this.rolUsuario = rolUsuario;
     }
-
+    
     // Getters y Setters
     public Long getIdUsuario() { return idUsuario; }
     public void setIdUsuario(Long idUsuario) { this.idUsuario = idUsuario; }
@@ -59,8 +58,8 @@ public class Usuario {
 
     public String getContrasenaUsuario() { return contrasenaUsuario; }
     public void setContrasenaUsuario(String contrasenaUsuario) {
-        this.contrasenaUsuario = new BCryptPasswordEncoder().encode(contrasenaUsuario);
-    }
+    this.contrasenaUsuario = contrasenaUsuario;
+}
 
     public String getRolUsuario() { return rolUsuario; }
     public void setRolUsuario(String rolUsuario) { this.rolUsuario = rolUsuario; }
