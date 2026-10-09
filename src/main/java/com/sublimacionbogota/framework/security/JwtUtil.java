@@ -7,7 +7,7 @@ import java.util.Date;
 
 public class JwtUtil {
     // Clave cambiada a 32+ caracteres (256 bits o más)
-    private static final String SECRET_KEY = "SublimacionBogota2026_ClaveSuperSeguraDe32BytesOmas_JWT!";
+    private static final String SECRET_KEY = "SublimacionBogota2026_ClaveSuperSeguraDe32BytesMega_JWT!";
     private static final long EXPIRATION_TIME = 86400000; // 1 día
 
     public static String generateToken(String correo, String rol) {
