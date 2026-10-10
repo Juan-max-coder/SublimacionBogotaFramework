@@ -10,7 +10,12 @@ import com.sublimacionbogota.framework.dao.UsuarioRepository;
 import com.sublimacionbogota.framework.modelo.Usuario;
 import com.sublimacionbogota.framework.security.JwtUtil;
 
-@CrossOrigin(origins = {"http://localhost:3000", "http://localhost"}) 
+@CrossOrigin(origins = {
+    "http://localhost:3000", 
+    "http://localhost", 
+    "https://sublimacionbogota-frontend.vercel.app",
+    "https://sublimacionbogota-frontend-g7voodsm5-juan-012b.vercel.app"
+}) 
 @RestController
 @RequestMapping("/auth")
 public class AuthController {
