@@ -6,7 +6,7 @@ import io.jsonwebtoken.Claims;
 import java.util.Date;
 
 public class JwtUtil {
-    // Clave segura de más de 32 caracteres, sin símbolos raros ni guiones bajos
+    // Clave segura de más de 32 caracteres, estrictamente alfanumérica sin símbolos inválidos para Base64
     private static final String SECRET_KEY = "SublimacionBogota2026ClaveSuperSeguraDe32BytesMegaJWT123456";
     private static final long EXPIRATION_TIME = 86400000; // 1 día
 
